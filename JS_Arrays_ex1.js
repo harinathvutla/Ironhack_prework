@@ -33,7 +33,7 @@ console.log(`If we pass a third argument: ${animalArray}`); // => If we pass a t
 
 
 //Add two of your favorite animals to the end of the array.
-animalArray.push('rabbit','elephant');
+animalArray.push('rabbit', 'elephant');
 console.log("new 2 animals added at the end of the array are:  "+animalArray);
 
 //Remove the first two elements of the array.

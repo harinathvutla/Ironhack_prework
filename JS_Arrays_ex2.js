@@ -8,7 +8,7 @@ With the loop of your choice, iterate through the array, but only print out the 
 
 var foods = ['pancakes','cookies','yogurt','eggs','pasta','rice'];
 var i=0;
-while(i<foods.length)
+while(i < foods.length)
 {
   if(i % 2 === 0)
   console.log(foods[i]);
