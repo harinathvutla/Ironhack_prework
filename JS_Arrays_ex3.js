@@ -8,5 +8,17 @@ for(let i=0 ; i < numbers.length ; i++){
 sum += numbers[i];
 }
 
+console.log("********using for()**********");
+// Log the sum
+console.log(sum);
+
+
+/***using forEach() *******/
+console.log("*******using forEach()**********");
+sum=0;
+numbers.forEach(function(n){
+   sum+=n;
+});
+
 // Log the sum
 console.log(sum);
