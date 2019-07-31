@@ -1,15 +1,24 @@
 // Rover Object Goes Here
 // ======================
-var rover={
+var rover1={
   direction:"N",
   x:0,
   y:0,
-  travelLog:[[0,0]]
+  travelLog:[[0,0]],
+  name: 'Rover1'
+}
+
+var rover2={
+  direction:"N",
+  x:10,
+  y:10,
+  travelLog:[[10,10]],
+  name: 'Rover2'
 }
 // ======================
 function turnLeft(rover){
-  console.log("Rover direction: "+rover.direction);
-  console.log("turnLeft was called!");
+  console.log(rover.name+" direction: "+rover.direction);
+  console.log("turnLeft was called on "+rover.name);
   switch (rover.direction) {
     case "N":
       rover.direction="W";
@@ -25,12 +34,12 @@ function turnLeft(rover){
       break;
   }
 
-  console.log("new Rover direction: "+rover.direction);
+  console.log(`new ${rover.name} direction: ${rover.direction}`);
 }
 
 function turnRight(rover){
-  console.log("Rover direction: "+rover.direction);
-  console.log("turnRight was called!");
+  console.log(rover.name +" direction: "+rover.direction);
+  console.log("turnRight was called on "+rover.name);
   switch (rover.direction) {
     case "N":
       rover.direction="E";
@@ -46,23 +55,23 @@ function turnRight(rover){
       break;
   }
 
-  console.log("new Rover direction: "+rover.direction);
+  console.log(`new ${rover.name} direction: ${rover.direction}`);
 }
 
 function moveForward(rover){
-  console.log("moveForward was called");
+  console.log("moveForward was called on "+rover.name);
   switch (rover.direction) {
     case "N":
-      (rover.y>0)?rover.y-=1:console.log("Caution: You are trying to move out of the map");
+      (rover.y>0)?rover.y-=1:console.log("Caution: You are trying to move "+rover.name+" out of the map");
       break;
     case "S":  
-      (rover.y<10)?rover.y+=1:console.log("Caution: You are trying to move out of the map");
+      (rover.y<10)?rover.y+=1:console.log("Caution: You are trying to move "+rover.name+" out of the map");
       break;
     case "E":
-      (rover.x<10)?rover.x+=1:console.log("Caution: You are trying to move out of the map");
+      (rover.x<10)?rover.x+=1:console.log("Caution: You are trying to move "+rover.name+" out of the map");
       break;
     case "W":
-      (rover.x>0)?rover.x-=1:console.log("Caution: You are trying to move out of the map");
+      (rover.x>0)?rover.x-=1:console.log("Caution: You are trying to move "+rover.name+" out of the map");
   }
 
   rover.travelLog.push([rover.x,rover.y]);
@@ -72,19 +81,19 @@ function moveForward(rover){
 //Move backwards function
 
 function moveBackward(rover){
-  console.log("moveBackward was called");
+  console.log("moveBackward was called on "+rover.name);
   switch (rover.direction) {
     case "N":
-      (rover.y<10)?rover.y+=1:console.log("Caution: You are trying to move out of the map");
+      (rover.y<10)?rover.y+=1:console.log("Caution: You are trying to move "+rover.name+" out of the map");
       break;
     case "S":  
-      (rover.y>0)?rover.y-=1:console.log("Caution: You are trying to move out of the map");
+      (rover.y>0)?rover.y-=1:console.log("Caution: You are trying to move "+rover.name+" out of the map");
       break;
     case "E":
-      (rover.x>0)?rover.x-=1:console.log("Caution: You are trying to move out of the map");
+      (rover.x>0)?rover.x-=1:console.log("Caution: You are trying to move "+rover.name+" out of the map");
       break;
     case "W":
-      (rover.x<10)?rover.x+=1:console.log("Caution: You are trying to move out of the map");
+      (rover.x<10)?rover.x+=1:console.log("Caution: You are trying to move "+rover.name+" out of the map");
   }
 
   rover.travelLog.push([rover.x,rover.y]);
@@ -93,7 +102,7 @@ function moveBackward(rover){
 
 // function to execute the commands in a list
 
-function execListComnds(listStrng) {
+function execListComnds(listStrng,rover) {
   
   for(let i=0;i<listStrng.length;i++)
   {
@@ -112,7 +121,7 @@ function execListComnds(listStrng) {
     }
      else
     {
-      console.log(listStrng[i]+" is not the right command, inputs must be only 'l', 'r', 'f' or 'b'");
+      console.log(`${listStrng[i]} is not the right command for ${rover}, inputs must be only 'l', 'r', 'f' or 'b'`);
       break; 
     }
 
